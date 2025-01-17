@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw a Flower</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5/lib/p5.js"></script>
+    <style>
+        canvas {
+            border: 1px solid black;
+            display: block;
+            margin: 20px auto;
+        }
+        #predict-btn {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #result {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Draw a Flower</h1>
+    <div id="result"></div>
+    <script>
+        let canvas, predictButton;
+
+        function setup() {
+            canvas = createCanvas(500, 500);
+            background(255); // Set white background
+            canvas.parent("result");
+
+            // Add predict button
+            predictButton = createButton("Predict");
+            predictButton.id("predict-btn");
+            predictButton.mousePressed(predict);
+        }
+
+        function draw() {
+            if (mouseIsPressed) {
+                strokeWeight(8);
+                stroke(0); // Black pen
+                line(mouseX, mouseY, pmouseX, pmouseY);
+            }
+        }
+
+        function predict() {
+            // Get canvas as base64 image
+            const base64Image = canvas.elt.toDataURL();
+
+            // Send image to Flask server
+            fetch("/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ image: base64Image })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultDiv = document.getElementById("result");
+                if (data.prediction) {
+                    resultDiv.innerHTML = `<h2>Prediction: ${data.prediction}</h2>`;
+                } else {
+                    resultDiv.innerHTML = `<h2>Error: ${data.error}</h2>`;
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</body>
+</html>
