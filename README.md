@@ -4,6 +4,8 @@
 
 This project is designed to classify human-drawn flowers into one of three categories: **happy**, **sad**, or **angry**. The goal is to provide an intuitive user experience for drawing and labeling flowers, training a machine learning model, and predicting flower emotions.
 
+!!!Due to the limited availability of real-world data, I utilized DALL-E for data generation through the script data_generation.py. This allowed me to create synthetic images of flowers labeled as “happy,” “sad,” and “angry,” .!!!
+
 The project includes the following components:
 1. A **Flask web application** (`app.py`) where users can draw flowers on a blank canvas and get predictions.
 2. A **labeling application** that allows users to draw flowers and label them as happy, sad, or angry. The labeled images are saved in the `my_flowers` directory.
