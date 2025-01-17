@@ -112,16 +112,6 @@ Below is the training and validation performance of the CNN model:
 
 ---
 
-## Additional Information
-
-### Performance Visualization
-The performance metrics (training and validation loss/accuracy) are visualized as follows:
-
-![Performance Metrics](performance.png)
-
-These plots help in understanding the model's learning process and evaluating its generalization capability.
-
----
 
 
 
