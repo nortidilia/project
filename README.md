@@ -55,8 +55,7 @@ Below is the training and validation performance of the CNN model:
 - The training loss consistently decreases, indicating proper learning.
 - Validation accuracy stabilizes at a high percentage (~86%), showing good generalization.
 
----
-
+the model was trained on 1302 data points after augmentation, although the original dataset contains 300 pictures
 ## How to Use
 
 ### Prerequisites
