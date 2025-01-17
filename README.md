@@ -20,8 +20,7 @@ The project includes the following components:
 ├── augmented.py             # Data augmentation script
 ├── data_generation.py       # Script for generating dataset
 ├── flowers/                 # Original dataset folder
-├── flowers_augmented/       # Augmented dataset folder
-├── my_flowers/              # User-labeled flowers folder (created by the labeling app)
+├── flowers_augmented/       # Augmented dataset folder              
 ├── flower_model.pth         # Pre-trained model file
 ├── main_training.py         # Main training script
 ├── testing.py               # Model testing script
