@@ -85,7 +85,11 @@ Below is the training and validation performance of the CNN model:
    ```
 2. Open your browser and navigate to `http://127.0.0.1:5050`.
 3. Draw a flower on the canvas and click "Predict" to see the classification.
+## Project Demo
 
+Here’s how the application works:
+
+![Demo](demo.gif)
 
 
 
